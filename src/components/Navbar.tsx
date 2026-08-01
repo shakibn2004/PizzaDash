@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingBag, Search, User, Pizza, MapPin, Sparkles } from 'lucide-react';
+import { ShoppingBag, Search, User, Pizza, MapPin, Sparkles, Bot } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 export const Navbar = () => {
@@ -90,6 +90,16 @@ export const Navbar = () => {
           <Link href="/menu" className="p-2.5 rounded-xl hover:bg-stone-100 text-stone-600 transition-colors md:hidden">
             <Search className="w-5 h-5" />
           </Link>
+
+          {/* Prominent Ask AI Button */}
+          <button 
+            type="button"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 text-white text-xs font-black shadow-md shadow-indigo-500/20 hover:opacity-95 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-white/30"
+          >
+            <Bot className="w-4 h-4 text-amber-300 animate-bounce" />
+            <span>Ask AI</span>
+            <span className="px-1.5 py-0.2 rounded-full bg-white/20 text-[9px] font-extrabold uppercase">Beta</span>
+          </button>
 
           <Link
             href="/auth/login"
