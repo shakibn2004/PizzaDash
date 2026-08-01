@@ -29,12 +29,12 @@ export default function LandingPage() {
   const marqueePizzas = [...MOCK_PIZZAS, ...MOCK_PIZZAS];
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1C1917] bg-subtle-pattern overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFDF9] text-stone-800 bg-subtle-pattern overflow-x-hidden">
       
-      {/* 1. Webild Coffee-Shop Inspired Hero Section (Light Warm Luxury) */}
+      {/* 1. Webild Coffee-Shop Inspired Hero Section (Light Warm Cream Aesthetic - Zero Dark Containers) */}
       <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 overflow-hidden">
         {/* Soft Warm Ambient Glow */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#FF6B35]/10 via-[#D4A373]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#FF6B35]/15 via-orange-200/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-stretch">
@@ -44,33 +44,35 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="md:col-span-8 relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200 shadow-2xl group min-h-[420px] sm:min-h-[480px] flex items-center"
+              className="md:col-span-8 relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-500/10 via-orange-400/10 to-amber-100/50 border border-orange-200/80 shadow-xl group min-h-[420px] sm:min-h-[480px] flex items-center p-6 sm:p-10 lg:p-12"
             >
+              {/* Vibrant Food Photography background */}
               <img
                 src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=1600&q=85"
                 alt="Wood-Fired Pizza Banner"
-                className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-103 transition-transform duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-103 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-950/70 to-transparent" />
+              {/* Soft Warm Light Overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FFFDF9]/95 via-[#FFFDF9]/75 to-transparent" />
               
-              <div className="relative z-10 p-6 sm:p-10 lg:p-12 max-w-xl space-y-6 text-white">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-wide">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Artisanal 72-Hour Sourdough Ferment
+              <div className="relative z-10 max-w-xl space-y-6 text-stone-900">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-400/30 text-[#D94E1F] text-xs font-black tracking-wide shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FF6B35]" /> Artisanal 72-Hour Sourdough Ferment
                 </div>
 
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-white">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-stone-900">
                   Crafted Slow. <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-[#FF6B35]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] via-[#E85A24] to-amber-600">
                     Baked at 900°F.
                   </span>
                 </h1>
 
-                <p className="text-sm sm:text-base text-stone-200 font-normal leading-relaxed line-clamp-2">
+                <p className="text-sm sm:text-base text-stone-600 font-medium leading-relaxed line-clamp-2">
                   Handcrafted wood-fired sourdough pizzas, 100% imported San Marzano tomatoes, and whole burrata delivered piping hot.
                 </p>
 
                 {/* Integrated Search bar */}
-                <div className="p-1.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl flex items-center gap-2 max-w-md border border-white/40">
+                <div className="p-1.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg flex items-center gap-2 max-w-md border border-orange-200/80">
                   <div className="flex items-center gap-2.5 px-3 py-2 w-full">
                     <Search className="w-4 h-4 text-stone-400 shrink-0" />
                     <input
@@ -83,7 +85,7 @@ export default function LandingPage() {
                   </div>
                   <Link
                     href="/menu"
-                    className="px-6 py-3 rounded-xl bg-[#FF6B35] text-white text-xs font-bold hover:bg-[#E85A24] shadow-lg shadow-orange-500/25 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0"
+                    className="px-6 py-3 rounded-xl bg-[#FF6B35] text-white text-xs font-bold hover:bg-[#E85A24] shadow-md shadow-orange-500/25 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0"
                   >
                     Order Now <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
@@ -92,8 +94,8 @@ export default function LandingPage() {
                 {/* Slide indicator dots */}
                 <div className="pt-2 flex items-center gap-2">
                   <span className="w-7 h-1.5 rounded-full bg-[#FF6B35]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-300" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-300" />
                 </div>
               </div>
             </motion.div>
@@ -103,20 +105,20 @@ export default function LandingPage() {
               
               {/* Promo Card 1 */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <Link href="/builder" className="group relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200 shadow-xl h-[200px] sm:h-[228px] block">
+                <Link href="/builder" className="group relative rounded-3xl overflow-hidden bg-white border border-orange-200/80 shadow-md h-[200px] sm:h-[228px] block">
                   <img
                     src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
                     alt="Custom Pizza Builder"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/50 to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between">
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-stone-900 flex items-end justify-between">
                     <div>
-                      <span className="px-2.5 py-0.5 rounded-md bg-amber-500 text-[10px] font-extrabold uppercase tracking-wider text-stone-950">Interactive</span>
-                      <h3 className="text-lg font-black mt-1 group-hover:text-amber-300 transition-colors text-white">Custom Pizza Builder</h3>
-                      <p className="text-xs text-stone-300">Choose crust, sauce & toppings</p>
+                      <span className="px-2.5 py-0.5 rounded-md bg-amber-500 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">Interactive</span>
+                      <h3 className="text-lg font-black mt-1 group-hover:text-[#FF6B35] transition-colors text-stone-900">Custom Pizza Builder</h3>
+                      <p className="text-xs text-stone-600 font-medium">Choose crust, sauce & toppings</p>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all shadow-md">
+                    <div className="w-9 h-9 rounded-full bg-white border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-md">
                       <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
@@ -125,20 +127,20 @@ export default function LandingPage() {
 
               {/* Promo Card 2 */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-                <Link href="/menu" className="group relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200 shadow-xl h-[200px] sm:h-[228px] block">
+                <Link href="/menu" className="group relative rounded-3xl overflow-hidden bg-white border border-orange-200/80 shadow-md h-[200px] sm:h-[228px] block">
                   <img
                     src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=800&q=80"
                     alt="Express Delivery"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/50 to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between">
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-stone-900 flex items-end justify-between">
                     <div>
-                      <span className="px-2.5 py-0.5 rounded-md bg-[#FF6B35] text-[10px] font-extrabold uppercase tracking-wider text-white">Fast Delivery</span>
-                      <h3 className="text-lg font-black mt-1 group-hover:text-amber-300 transition-colors text-white">15-20 Min Guarantee</h3>
-                      <p className="text-xs text-stone-300">Delivered piping hot</p>
+                      <span className="px-2.5 py-0.5 rounded-md bg-[#FF6B35] text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">Fast Delivery</span>
+                      <h3 className="text-lg font-black mt-1 group-hover:text-[#FF6B35] transition-colors text-stone-900">15-20 Min Guarantee</h3>
+                      <p className="text-xs text-stone-600 font-medium">Delivered piping hot</p>
                     </div>
-                    <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all shadow-md">
+                    <div className="w-9 h-9 rounded-full bg-white border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-md">
                       <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
@@ -151,8 +153,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 2. Webild Style Framer Motion Infinite Horizontal Scrolling Showcase (Light Warm Theme) */}
-      <section className="py-6 bg-white border-y border-stone-200/80 shadow-xs overflow-hidden">
+      {/* 2. Framer Motion Infinite Horizontal Scrolling Showcase (Light Warm Theme) */}
+      <section className="py-6 bg-white border-y border-orange-200/60 shadow-xs overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B35] animate-ping" />
@@ -179,12 +181,12 @@ export default function LandingPage() {
               <Link
                 key={`${pizza.id}-${index}`}
                 href={`/pizza/${pizza.id}`}
-                className="flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-[#FDFBF7] border border-stone-200/80 hover:border-[#FF6B35] hover:bg-white hover:shadow-md transition-all shrink-0 group"
+                className="flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-orange-50/40 border border-orange-200/60 hover:border-[#FF6B35] hover:bg-white hover:shadow-md transition-all shrink-0 group"
               >
                 <img
                   src={pizza.image}
                   alt={pizza.name}
-                  className="w-12 h-12 rounded-xl object-cover border border-stone-200 group-hover:scale-105 transition-transform"
+                  className="w-12 h-12 rounded-xl object-cover border border-orange-200/80 group-hover:scale-105 transition-transform"
                 />
                 <div>
                   <h4 className="text-xs font-black text-stone-900 group-hover:text-[#FF6B35] transition-colors">{pizza.name}</h4>
@@ -201,11 +203,11 @@ export default function LandingPage() {
       </section>
 
       {/* 3. Value Proposition Bar */}
-      <section className="py-6 bg-white/80 border-b border-stone-200/60">
+      <section className="py-6 bg-[#FFFDF9] border-b border-orange-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-2">
-            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-              <div className="w-10 h-10 rounded-xl bg-orange-100/80 text-[#FF6B35] flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-orange-200/60 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-orange-100 text-[#FF6B35] flex items-center justify-center shrink-0">
                 <Truck className="w-5 h-5" />
               </div>
               <div>
@@ -214,8 +216,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-              <div className="w-10 h-10 rounded-xl bg-amber-100/80 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-orange-200/60 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
                 <Award className="w-5 h-5" />
               </div>
               <div>
@@ -224,8 +226,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100/80 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-orange-200/60 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
                 <Zap className="w-5 h-5" />
               </div>
               <div>
@@ -234,8 +236,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-              <div className="w-10 h-10 rounded-xl bg-purple-100/80 text-purple-600 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-orange-200/60 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -268,7 +270,7 @@ export default function LandingPage() {
                 className={`flex flex-col items-center justify-center p-5 rounded-3xl border text-center transition-all duration-300 ${
                   selectedCategory === cat
                     ? 'bg-white border-[#FF6B35] shadow-lg ring-2 ring-[#FF6B35]/20 scale-102'
-                    : 'bg-white/80 border-stone-200/80 hover:border-stone-300 hover:shadow-xs'
+                    : 'bg-white/80 border-orange-200/60 hover:border-orange-300 hover:shadow-xs'
                 }`}
               >
                 <span className="text-3xl mb-2.5">{categoryIcons[cat] || '🍕'}</span>
@@ -285,7 +287,7 @@ export default function LandingPage() {
       {/* 5. Featured Pizzas Product Grid */}
       <section className="pb-16 pt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8 border-b border-stone-200/80 pb-4">
+          <div className="flex items-center justify-between mb-8 border-b border-orange-200/60 pb-4">
             <div>
               <span className="text-xs font-extrabold text-[#FF6B35] uppercase tracking-wider">Recommended For You</span>
               <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight mt-0.5">
@@ -306,7 +308,7 @@ export default function LandingPage() {
       </section>
 
       {/* 6. Webild Coffee-Shop Lengthy Section: Quality Ingredients */}
-      <section className="py-16 bg-white border-y border-stone-200/80">
+      <section className="py-16 bg-white border-y border-orange-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
             <span className="text-xs font-black text-[#FF6B35] uppercase tracking-widest">Quality Ingredients</span>
@@ -319,8 +321,8 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl bg-[#FDFBF7] border border-stone-200/80 text-center space-y-4 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 rounded-2xl bg-orange-100/80 text-[#FF6B35] flex items-center justify-center mx-auto text-2xl font-black">
+            <div className="p-8 rounded-3xl bg-orange-50/30 border border-orange-200/60 text-center space-y-4 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-2xl bg-orange-100 text-[#FF6B35] flex items-center justify-center mx-auto text-2xl font-black">
                 🌾
               </div>
               <h3 className="text-lg font-black text-stone-900">72-Hour Fermented Dough</h3>
@@ -329,8 +331,8 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[#FDFBF7] border border-stone-200/80 text-center space-y-4 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 rounded-2xl bg-amber-100/80 text-amber-600 flex items-center justify-center mx-auto text-2xl font-black">
+            <div className="p-8 rounded-3xl bg-orange-50/30 border border-orange-200/60 text-center space-y-4 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-2xl font-black">
                 🍅
               </div>
               <h3 className="text-lg font-black text-stone-900">San Marzano DOP Tomatoes</h3>
@@ -339,8 +341,8 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-[#FDFBF7] border border-stone-200/80 text-center space-y-4 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-100/80 text-emerald-600 flex items-center justify-center mx-auto text-2xl font-black">
+            <div className="p-8 rounded-3xl bg-orange-50/30 border border-orange-200/60 text-center space-y-4 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl font-black">
                 🔥
               </div>
               <h3 className="text-lg font-black text-stone-900">900°F Oak Wood Oven</h3>
@@ -353,7 +355,7 @@ export default function LandingPage() {
       </section>
 
       {/* 7. Webild Coffee-Shop Lengthy Section: Customer Testimonials */}
-      <section className="py-16 bg-[#FDFBF7]">
+      <section className="py-16 bg-[#FFFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
             <span className="text-xs font-black text-[#FF6B35] uppercase tracking-widest">Verified Customer Reviews</span>
@@ -363,7 +365,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 space-y-4 shadow-sm">
+            <div className="p-6 rounded-3xl bg-white border border-orange-200/60 space-y-4 shadow-sm">
               <div className="flex items-center gap-1 text-amber-400 text-sm">
                 ★★★★★
               </div>
@@ -381,7 +383,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 space-y-4 shadow-sm">
+            <div className="p-6 rounded-3xl bg-white border border-orange-200/60 space-y-4 shadow-sm">
               <div className="flex items-center gap-1 text-amber-400 text-sm">
                 ★★★★★
               </div>
@@ -399,7 +401,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white border border-stone-200/80 space-y-4 shadow-sm">
+            <div className="p-6 rounded-3xl bg-white border border-orange-200/60 space-y-4 shadow-sm">
               <div className="flex items-center gap-1 text-amber-400 text-sm">
                 ★★★★★
               </div>
@@ -420,28 +422,28 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 8. Interactive Custom Pizza Builder Banner */}
+      {/* 8. Interactive Custom Pizza Builder Banner (Vibrant Light Warm Container) */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-stone-900 text-white p-8 sm:p-12 overflow-hidden shadow-2xl border border-stone-800">
+        <div className="relative rounded-3xl bg-gradient-to-r from-[#FF6B35] via-[#E85A24] to-amber-500 text-white p-8 sm:p-12 overflow-hidden shadow-2xl">
           <img
             src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=80"
             alt="Chef Crafting Pizza"
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-overlay"
           />
           <div className="relative z-10 max-w-xl space-y-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-amber-400 text-xs font-extrabold">
-              <Sparkles className="w-3.5 h-3.5" /> Interactive Custom Builder
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-extrabold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Interactive Custom Builder
             </span>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
               Create Your Own Gourmet Masterpiece.
             </h2>
-            <p className="text-sm text-stone-300 font-normal leading-relaxed">
+            <p className="text-sm text-orange-50 font-medium leading-relaxed">
               Mix and match artisan sourdough crusts, signature sauces, gourmet cheeses, and premium toppings with real-time price estimation.
             </p>
             <div className="pt-2">
               <Link
                 href="/builder"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#FF6B35] text-white text-xs font-bold shadow-lg shadow-orange-500/30 hover:bg-[#E85A24] transition-all hover:scale-102 active:scale-95"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-[#FF6B35] text-xs font-black shadow-lg hover:bg-stone-50 transition-all hover:scale-102 active:scale-95"
               >
                 Launch Builder <ArrowRight className="w-4 h-4" />
               </Link>
