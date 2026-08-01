@@ -6,10 +6,12 @@ import { motion } from 'framer-motion';
 import { Search, Sparkles, Flame, Clock, ArrowRight, ShieldCheck, Star, Truck, Award, Zap, ChevronRight, CheckCircle2, Heart, ShoppingBag, Bot } from 'lucide-react';
 import { MOCK_PIZZAS } from '@/data/mockData';
 import { PizzaCard } from '@/components/PizzaCard';
+import { AskAiModal } from '@/components/AskAiModal';
 
 export default function LandingPage() {
   const [address, setAddress] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
 
   const categories = ['All', 'Classic', 'Specialty', 'Veggie', 'Spicy', "Chef's Special"];
 
@@ -79,7 +81,8 @@ export default function LandingPage() {
                   
                   <button
                     type="button"
-                    className="px-3.5 py-3 rounded-xl bg-orange-100/80 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-orange-200 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 group"
+                    onClick={() => setIsAiModalOpen(true)}
+                    className="px-3.5 py-3 rounded-xl bg-orange-100/80 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-orange-200 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 group cursor-pointer"
                   >
                     <Bot className="w-4 h-4 text-[#FF6B35] group-hover:text-white transition-colors" />
                     <span>Ask AI</span>
@@ -512,6 +515,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Ultra-Luxury Ask AI Modal */}
+      <AskAiModal isOpen={isAiModalOpen} onClose={() => setIsAiModalOpen(false)} />
 
     </div>
   );
