@@ -58,8 +58,8 @@
 
 /* Subtle Minimalist Textured Background */
 .bg-subtle-pattern {
-  background-color: #14110F;
-  background-image: radial-gradient(rgba(212, 163, 115, 0.12) 0.85px, transparent 0.85px), radial-gradient(rgba(212, 163, 115, 0.12) 0.85px, #14110F 0.85px);
+  background-color: #FDFBF7;
+  background-image: radial-gradient(rgba(212, 163, 115, 0.25) 0.85px, transparent 0.85px), radial-gradient(rgba(212, 163, 115, 0.25) 0.85px, #FDFBF7 0.85px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
 }
