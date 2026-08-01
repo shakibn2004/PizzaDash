@@ -89,8 +89,8 @@ export const Navbar = () => {
             </Link>
           </nav>
 
-          {/* User Actions */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* User Actions with Generous Spacing from Nav Links */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0 ml-6 lg:ml-10">
             
             {/* Ask AI Button (Opens Ultra-Luxury AI Modal) */}
             <button 
