@@ -86,19 +86,18 @@ export const Navbar = () => {
         </nav>
 
         {/* User Actions */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-4">
           <Link href="/menu" className="p-2.5 rounded-xl hover:bg-stone-100 text-stone-600 transition-colors md:hidden">
             <Search className="w-5 h-5" />
           </Link>
 
-          {/* Prominent Ask AI Button */}
+          {/* Distinct Ask AI Button (Visible on both Mobile & Desktop) */}
           <button 
             type="button"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 text-white text-xs font-black shadow-md shadow-indigo-500/20 hover:opacity-95 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-white/30"
+            className="flex items-center gap-1.5 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-orange-100/90 border border-orange-200/90 text-[#FF6B35] hover:bg-[#FF6B35] hover:text-white text-xs font-bold transition-all cursor-pointer whitespace-nowrap shadow-2xs group"
           >
-            <Bot className="w-4 h-4 text-amber-300 animate-bounce" />
-            <span>Ask AI</span>
-            <span className="px-1.5 py-0.2 rounded-full bg-white/20 text-[9px] font-extrabold uppercase">Beta</span>
+            <Bot className="w-4 h-4 text-[#FF6B35] group-hover:text-white transition-colors shrink-0" />
+            <span className="text-xs font-extrabold">Ask AI</span>
           </button>
 
           <Link

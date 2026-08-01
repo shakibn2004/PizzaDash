@@ -64,8 +64,8 @@ export default function LandingPage() {
                   Handcrafted wood-fired sourdough pizzas, 100% imported San Marzano DOP tomatoes, and fresh burrata delivered piping hot in 15 minutes.
                 </p>
 
-                {/* Integrated Search Bar with Glassmorphic Accent */}
-                <div className="p-1.5 rounded-2xl bg-white shadow-lg shadow-orange-950/5 flex flex-col sm:flex-row items-center gap-2 max-w-lg border border-orange-200/90 hover:border-[#FF6B35]/50 transition-all">
+                {/* Integrated Search Bar with Clean Inline Ask AI Button */}
+                <div className="p-1.5 rounded-2xl bg-white shadow-lg shadow-orange-950/5 flex items-center gap-2 max-w-md border border-orange-200/90 hover:border-[#FF6B35]/50 transition-all">
                   <div className="flex items-center gap-2.5 px-3 py-2 w-full">
                     <Search className="w-4 h-4 text-[#FF6B35] shrink-0" />
                     <input
@@ -76,21 +76,21 @@ export default function LandingPage() {
                       className="w-full text-xs font-semibold text-stone-800 placeholder-stone-400 bg-transparent focus:outline-none"
                     />
                   </div>
-                  <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end">
-                    <button
-                      type="button"
-                      className="flex items-center gap-1.5 px-4 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-black shadow-md hover:opacity-95 transition-all whitespace-nowrap"
-                    >
-                      <Bot className="w-4 h-4 text-amber-300 animate-bounce" />
-                      <span>Ask AI</span>
-                    </button>
-                    <Link
-                      href="/menu"
-                      className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#FF6B35] to-[#E85A24] text-white text-xs font-black hover:opacity-95 shadow-md shadow-orange-500/30 transition-all whitespace-nowrap flex items-center gap-1.5 hover:scale-[1.02] active:scale-95"
-                    >
-                      Order <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                  
+                  <button
+                    type="button"
+                    className="px-3.5 py-3 rounded-xl bg-orange-100/80 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-orange-200 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 group"
+                  >
+                    <Bot className="w-4 h-4 text-[#FF6B35] group-hover:text-white transition-colors" />
+                    <span>Ask AI</span>
+                  </button>
+
+                  <Link
+                    href="/menu"
+                    className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#FF6B35] to-[#E85A24] text-white text-xs font-black hover:opacity-95 shadow-md shadow-orange-500/25 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 hover:scale-[1.02] active:scale-95"
+                  >
+                    Order Now <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
 
                 {/* Live Stats Badge */}
