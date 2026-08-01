@@ -140,28 +140,28 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 2. Framer Motion Infinite Horizontal Scrolling Showcase (CameraBazar Feature) */}
-      <section className="py-6 bg-stone-900 text-white overflow-hidden border-y border-stone-800 shadow-md">
+      {/* 2. Framer Motion Infinite Horizontal Scrolling Showcase (White Premium Aesthetic) */}
+      <section className="py-6 bg-white border-y border-stone-200/80 shadow-xs overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B35] animate-ping" />
-            <h3 className="text-xs font-bold uppercase tracking-widest text-amber-400">Live Trending Oven Showcase</h3>
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#FF6B35]">Live Trending Oven Showcase</h3>
           </div>
-          <span className="text-[11px] font-semibold text-stone-400">Continuous 360° Rotational Bake</span>
+          <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider">Continuous 360° Rotational Bake</span>
         </div>
 
         {/* Infinite Marquee Track */}
-        <div className="relative flex overflow-hidden select-none">
+        <div className="relative flex overflow-hidden select-none py-1">
           {/* Subtle Side Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-stone-900 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-stone-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <motion.div
-            className="flex items-center gap-6 whitespace-nowrap"
+            className="flex items-center gap-5 whitespace-nowrap"
             animate={{ x: ['0%', '-50%'] }}
             transition={{
               ease: 'linear',
-              duration: 25,
+              duration: 28,
               repeat: Infinity,
             }}
           >
@@ -169,19 +169,19 @@ export default function LandingPage() {
               <Link
                 key={`${pizza.id}-${index}`}
                 href={`/pizza/${pizza.id}`}
-                className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-stone-800/80 border border-stone-700/70 hover:border-[#FF6B35] hover:bg-stone-800 transition-all shrink-0 group"
+                className="flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-[#FAF8F5] border border-stone-200/80 hover:border-[#FF6B35] hover:bg-white hover:shadow-md transition-all shrink-0 group"
               >
                 <img
                   src={pizza.image}
                   alt={pizza.name}
-                  className="w-12 h-12 rounded-xl object-cover border border-stone-600 group-hover:scale-105 transition-transform"
+                  className="w-12 h-12 rounded-xl object-cover border border-stone-200 group-hover:scale-105 transition-transform"
                 />
                 <div>
-                  <h4 className="text-xs font-bold text-white group-hover:text-[#FF6B35] transition-colors">{pizza.name}</h4>
-                  <div className="flex items-center gap-2 text-[11px] text-stone-400 mt-0.5">
-                    <span className="font-extrabold text-amber-400">${pizza.price}</span>
+                  <h4 className="text-xs font-black text-stone-900 group-hover:text-[#FF6B35] transition-colors">{pizza.name}</h4>
+                  <div className="flex items-center gap-2 text-[11px] text-stone-500 mt-0.5">
+                    <span className="font-extrabold text-[#FF6B35]">${pizza.price}</span>
                     <span>•</span>
-                    <span className="flex items-center gap-0.5 text-amber-300 font-bold">★ {pizza.rating}</span>
+                    <span className="flex items-center gap-0.5 text-amber-500 font-bold">★ {pizza.rating}</span>
                   </div>
                 </div>
               </Link>
