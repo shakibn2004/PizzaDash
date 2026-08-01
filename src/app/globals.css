@@ -6,12 +6,12 @@
     --primary-hover: #E85A24;
     --secondary: #D4A373;
     --accent: #E76F51;
-    --background: #14110F;
-    --surface: #1C1917;
-    --card-bg: #26221F;
-    --text-main: #F5EBE0;
-    --text-muted: #A39B8B;
-    --border: rgba(212, 163, 115, 0.15);
+    --background: #FDFBF7;
+    --surface: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --text-main: #1C1917;
+    --text-muted: #78716C;
+    --border: rgba(212, 163, 115, 0.25);
   }
 
   body {

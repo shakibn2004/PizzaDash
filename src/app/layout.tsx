@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#14110F] text-[#F5EBE0]">
+      <body className="antialiased bg-[#FDFBF7] text-[#1C1917]">
         <PremiumSpinner durationMs={3500} />
         <CartProvider>
           <Navbar />
