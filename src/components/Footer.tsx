@@ -47,24 +47,25 @@ export const Footer = () => {
             </div>
             <div>
               <h4 className="text-white font-bold text-sm">Loved by 50,000+ Foodies</h4>
-              <p className="text-xs text-gray-400">4.9/5 stars over 12,000 reviews</p>
+              <p className="text-xs text-[#A39B8B]">4.9/5 stars over 12,000 reviews</p>
             </div>
           </div>
         </div>
 
         {/* Footer Links Architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12">
-          <div className="md:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
+          {/* Brand Col */}
+          <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#FF6B35] flex items-center justify-center text-white">
-                <Pizza className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-2xl bg-[#FF6B35] flex items-center justify-center text-white shadow-lg shadow-orange-500/25">
+                <Pizza className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-black text-white tracking-tight">
-                Pizza<span className="text-[#FF6B35]">Dash</span>
+              <span className="text-2xl font-black tracking-tight text-[#F5EBE0]">
+                PIZZA<span className="text-[#FF6B35]">DASH</span>
               </span>
             </div>
-            <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
-              Handcrafted wood-fired sourdough pizzas made with passion, premium ingredients, and delivered with surgical speed across Seattle.
+            <p className="text-xs text-[#A39B8B] leading-relaxed max-w-sm">
+              Artisanal wood-fired sourdough pizzas baked at 900°F and delivered piping hot in 15 minutes. Pure Italian ingredients crafted with passion.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>

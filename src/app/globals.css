@@ -4,13 +4,14 @@
   :root {
     --primary: #FF6B35;
     --primary-hover: #E85A24;
-    --secondary: #FFB703;
-    --accent: #2EC4B6;
-    --background: #FFFDF9;
-    --surface: #FFFFFF;
-    --text-main: #1F2937;
-    --text-muted: #6B7280;
-    --border: #F3F4F6;
+    --secondary: #D4A373;
+    --accent: #E76F51;
+    --background: #14110F;
+    --surface: #1C1917;
+    --card-bg: #26221F;
+    --text-main: #F5EBE0;
+    --text-muted: #A39B8B;
+    --border: rgba(212, 163, 115, 0.15);
   }
 
   body {
@@ -57,9 +58,10 @@
 
 /* Subtle Minimalist Textured Background */
 .bg-subtle-pattern {
-  background-color: #FAF8F5;
-  background-image: radial-gradient(#E5E0D8 0.75px, transparent 0.75px), radial-gradient(#E5E0D8 0.75px, #FAF8F5 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+  background-color: #14110F;
+  background-image: radial-gradient(rgba(212, 163, 115, 0.12) 0.85px, transparent 0.85px), radial-gradient(rgba(212, 163, 115, 0.12) 0.85px, #14110F 0.85px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
 }
+
 
