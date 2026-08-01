@@ -31,24 +31,26 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#FFFDF9] text-stone-800 bg-subtle-pattern overflow-x-hidden">
       
-      {/* 1. Webild Coffee-Shop Inspired Hero Section (Clean Light Warm Cream & White) */}
-      <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 overflow-hidden">
-        {/* Soft Warm Ambient Glow */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#FF6B35]/10 via-orange-100/40 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* 1. Ultra-Luxury Light Warm Hero Section */}
+      <section className="relative pt-6 pb-12 sm:pt-10 sm:pb-16 overflow-hidden">
+        {/* Ambient Soft Gold/Orange Radial Background Glows */}
+        <div className="absolute top-10 left-1/4 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-[#FF6B35]/15 via-amber-200/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-20 right-10 w-[400px] h-[300px] bg-gradient-to-bl from-amber-300/20 via-orange-100/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
-            {/* Main Feature Banner (Left 8 cols) - Pure White Luxury Container */}
+            {/* Main Feature Banner (Left 8 cols) - Glassmorphic Luxury Container */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="md:col-span-8 relative rounded-3xl overflow-hidden bg-white border border-orange-200/80 shadow-xl p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="md:col-span-8 relative rounded-3xl overflow-hidden bg-gradient-to-br from-white via-[#FFFDF9] to-orange-50/50 border border-orange-200/90 shadow-2xl p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 group hover:shadow-orange-500/10 transition-all duration-500"
             >
               <div className="relative z-10 max-w-xl space-y-6 text-stone-900">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-200/80 text-[#D94E1F] text-xs font-black tracking-wide shadow-2xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FF6B35]" /> Artisanal 72-Hour Sourdough Ferment
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-100/90 to-amber-100/90 border border-orange-200 text-[#D94E1F] text-xs font-black tracking-wide shadow-2xs">
+                  <Sparkles className="w-4 h-4 text-[#FF6B35] animate-pulse" /> 
+                  <span>Artisanal 72-Hour Sourdough Ferment</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-stone-900">
@@ -59,13 +61,13 @@ export default function LandingPage() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-stone-600 font-medium leading-relaxed">
-                  Handcrafted wood-fired sourdough pizzas, 100% imported San Marzano tomatoes, and whole burrata delivered piping hot.
+                  Handcrafted wood-fired sourdough pizzas, 100% imported San Marzano DOP tomatoes, and fresh burrata delivered piping hot in 15 minutes.
                 </p>
 
-                {/* Integrated Search bar */}
-                <div className="p-1.5 rounded-2xl bg-[#FDFBF7] shadow-md flex items-center gap-2 max-w-md border border-orange-200/80">
+                {/* Integrated Search Bar with Glassmorphic Accent */}
+                <div className="p-1.5 rounded-2xl bg-white shadow-lg shadow-orange-950/5 flex items-center gap-2 max-w-md border border-orange-200/90 hover:border-[#FF6B35]/50 transition-all">
                   <div className="flex items-center gap-2.5 px-3 py-2 w-full">
-                    <Search className="w-4 h-4 text-stone-400 shrink-0" />
+                    <Search className="w-4 h-4 text-[#FF6B35] shrink-0" />
                     <input
                       type="text"
                       value={address}
@@ -76,43 +78,61 @@ export default function LandingPage() {
                   </div>
                   <Link
                     href="/menu"
-                    className="px-6 py-3 rounded-xl bg-[#FF6B35] text-white text-xs font-bold hover:bg-[#E85A24] shadow-md shadow-orange-500/25 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0"
+                    className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#FF6B35] to-[#E85A24] text-white text-xs font-black hover:opacity-95 shadow-md shadow-orange-500/30 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 hover:scale-[1.02] active:scale-95"
                   >
-                    Order Now <ArrowRight className="w-3.5 h-3.5" />
+                    Order Now <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                {/* Slide indicator dots */}
-                <div className="pt-2 flex items-center gap-2">
-                  <span className="w-7 h-1.5 rounded-full bg-[#FF6B35]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-200" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-200" />
+                {/* Live Stats Badge */}
+                <div className="pt-2 flex items-center gap-6 text-xs font-bold text-stone-700 border-t border-orange-100">
+                  <div className="flex items-center gap-1.5">
+                    <Flame className="w-4 h-4 text-[#FF6B35]" />
+                    <span>90 Sec Fire Bake</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-amber-500" />
+                    <span>15m Express ETD</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <span>4.9 Star Rated</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Clean Framed Pizza Showcase Image */}
-              <div className="relative w-full lg:w-72 h-64 lg:h-80 rounded-2xl overflow-hidden shrink-0 border border-orange-200/60 shadow-lg">
+              {/* Framed Floating Pizza Showcase Card */}
+              <div className="relative w-full lg:w-72 h-64 lg:h-84 rounded-2xl overflow-hidden shrink-0 border-2 border-orange-200/80 shadow-2xl group-hover:scale-[1.02] transition-transform duration-700">
                 <img
                   src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=85"
                   alt="Wood-Fired Pizza Banner"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-white/90 backdrop-blur-md border border-white/40 text-stone-900 flex items-center justify-between shadow-lg">
+                  <div>
+                    <span className="text-[10px] font-black text-[#FF6B35] uppercase tracking-wider block">Signature Item</span>
+                    <h4 className="text-xs font-black text-stone-900">Truffle Pepperoni</h4>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-lg bg-[#FF6B35] text-white text-xs font-black">$18.99</span>
+                </div>
               </div>
             </motion.div>
 
-            {/* Right Side Cards (4 cols) - Clean Light Layout */}
+            {/* Right Side Promo Cards (4 cols) */}
             <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 lg:gap-6">
               
               {/* Promo Card 1 */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <Link href="/builder" className="group relative rounded-3xl overflow-hidden bg-white border border-orange-200/80 shadow-md h-[200px] sm:h-[228px] p-6 flex flex-col justify-between block hover:border-[#FF6B35] transition-all">
+                <Link href="/builder" className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-white to-amber-50/40 border border-orange-200/80 shadow-lg h-[200px] sm:h-[228px] p-6 flex flex-col justify-between block hover:border-[#FF6B35] hover:shadow-xl transition-all">
                   <div className="flex items-start justify-between">
-                    <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black uppercase tracking-wider">Interactive</span>
-                    <div className="w-9 h-9 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-2xs">
+                    <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black uppercase tracking-wider shadow-2xs">Interactive</span>
+                    <div className="w-10 h-10 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-2xs">
                       <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
                   <div>
+                    <span className="text-2xl mb-1 block">👨‍🍳</span>
                     <h3 className="text-xl font-black text-stone-900 group-hover:text-[#FF6B35] transition-colors">Custom Pizza Builder</h3>
                     <p className="text-xs text-stone-500 font-medium mt-1">Mix artisan sourdough crust, sauces & fresh toppings</p>
                   </div>
@@ -121,14 +141,15 @@ export default function LandingPage() {
 
               {/* Promo Card 2 */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-                <Link href="/menu" className="group relative rounded-3xl overflow-hidden bg-white border border-orange-200/80 shadow-md h-[200px] sm:h-[228px] p-6 flex flex-col justify-between block hover:border-[#FF6B35] transition-all">
+                <Link href="/menu" className="group relative rounded-3xl overflow-hidden bg-gradient-to-br from-white to-orange-50/40 border border-orange-200/80 shadow-lg h-[200px] sm:h-[228px] p-6 flex flex-col justify-between block hover:border-[#FF6B35] hover:shadow-xl transition-all">
                   <div className="flex items-start justify-between">
-                    <span className="px-3 py-1 rounded-full bg-orange-100 text-[#FF6B35] border border-orange-200 text-[10px] font-black uppercase tracking-wider">Fast Delivery</span>
-                    <div className="w-9 h-9 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-2xs">
+                    <span className="px-3 py-1 rounded-full bg-orange-100 text-[#FF6B35] border border-orange-200 text-[10px] font-black uppercase tracking-wider shadow-2xs">Fast Delivery</span>
+                    <div className="w-10 h-10 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#FF6B35] group-hover:bg-[#FF6B35] group-hover:text-white transition-all shadow-2xs">
                       <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
                   <div>
+                    <span className="text-2xl mb-1 block">🚀</span>
                     <h3 className="text-xl font-black text-stone-900 group-hover:text-[#FF6B35] transition-colors">15-20 Min Guarantee</h3>
                     <p className="text-xs text-stone-500 font-medium mt-1">Wood-fired perfection delivered piping hot to your door</p>
                   </div>
