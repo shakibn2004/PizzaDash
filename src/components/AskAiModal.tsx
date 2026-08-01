@@ -73,28 +73,29 @@ export const AskAiModal: React.FC<AiModalProps> = ({ isOpen, onClose }) => {
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="relative w-full max-w-2xl rounded-3xl bg-[#FFFDF9] border border-orange-200/90 shadow-2xl overflow-hidden z-10 flex flex-col max-h-[85vh]"
           >
-            {/* Modal Header */}
-            <div className="p-6 bg-gradient-to-r from-white via-[#FFFDF9] to-orange-50/80 border-b border-orange-200/80 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#FF6B35] to-amber-500 flex items-center justify-center text-white shadow-md shadow-orange-500/25">
-                  <Bot className="w-6 h-6 text-white" />
+            {/* Modal Header (100% Mobile Responsive) */}
+            <div className="p-4 sm:p-6 bg-gradient-to-r from-white via-[#FFFDF9] to-orange-50/80 border-b border-orange-200/80 flex items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#FF6B35] to-amber-500 flex items-center justify-center text-white shadow-md shadow-orange-500/25 shrink-0">
+                  <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-black text-stone-900">PizzaDash Gourmet AI</h3>
-                    <span className="px-2 py-0.5 rounded-full bg-orange-100 border border-orange-200 text-[#FF6B35] text-[10px] font-extrabold uppercase">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <h3 className="text-sm sm:text-lg font-black text-stone-900 truncate">PizzaDash Gourmet AI</h3>
+                    <span className="px-1.5 sm:px-2 py-0.5 rounded-full bg-orange-100 border border-orange-200 text-[#FF6B35] text-[9px] sm:text-[10px] font-extrabold uppercase shrink-0">
                       Sommelier v2.0
                     </span>
                   </div>
-                  <p className="text-xs text-stone-500 font-medium">Instant sourdough & flavor recommendations</p>
+                  <p className="text-[11px] sm:text-xs text-stone-500 font-medium truncate">Instant sourdough & flavor recommendations</p>
                 </div>
               </div>
 
               <button
                 onClick={onClose}
-                className="w-9 h-9 rounded-full bg-white border border-stone-200/80 text-stone-500 hover:text-stone-900 hover:bg-stone-100 flex items-center justify-center transition-colors shadow-2xs"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-stone-200/80 text-stone-500 hover:text-stone-900 hover:bg-stone-100 flex items-center justify-center transition-colors shadow-2xs shrink-0"
+                aria-label="Close modal"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 

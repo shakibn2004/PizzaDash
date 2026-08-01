@@ -92,14 +92,14 @@ export const Navbar = () => {
           {/* User Actions with Responsive Spacing */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 ml-2 sm:ml-6 lg:ml-10">
             
-            {/* Ask AI Button (Compact on small mobile, full size on desktop) */}
+            {/* Ask AI Button (Desktop Only - hidden on mobile) */}
             <button 
               type="button"
               onClick={() => setIsAiModalOpen(true)}
-              className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-xl bg-orange-100/90 border border-orange-200/90 text-[#FF6B35] hover:bg-[#FF6B35] hover:text-white text-xs font-bold transition-all cursor-pointer whitespace-nowrap shadow-2xs group"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-orange-100/90 border border-orange-200/90 text-[#FF6B35] hover:bg-[#FF6B35] hover:text-white text-xs font-bold transition-all cursor-pointer whitespace-nowrap shadow-2xs group"
             >
-              <Bot className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF6B35] group-hover:text-white transition-colors shrink-0" />
-              <span className="text-[11px] sm:text-xs font-extrabold">Ask AI</span>
+              <Bot className="w-4 h-4 text-[#FF6B35] group-hover:text-white transition-colors shrink-0" />
+              <span className="text-xs font-extrabold">Ask AI</span>
             </button>
 
             <Link
