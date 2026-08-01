@@ -29,25 +29,25 @@ export default function LandingPage() {
     <div className="min-h-screen bg-subtle-pattern">
       
       {/* 1. CameraBazar-Style Split Grid Hero Section */}
-      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12">
+      <section className="pt-6 pb-8 sm:pt-8 sm:pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6">
             
             {/* Main Big Feature Banner (Left / Top 8 cols) */}
-            <div className="md:col-span-8 relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-md group min-h-[380px] sm:min-h-[440px] flex items-center">
+            <div className="md:col-span-8 relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-xl group min-h-[400px] sm:min-h-[460px] flex items-center">
               <img
                 src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=1600&q=85"
                 alt="Wood-Fired Pizza Banner"
-                className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-102 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-103 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-950/70 to-transparent" />
               
-              <div className="relative z-10 p-6 sm:p-10 lg:p-12 max-w-xl space-y-5 text-white">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6B35] text-white text-xs font-bold tracking-wide">
-                  <Sparkles className="w-3.5 h-3.5" /> 72-Hour Sourdough Fermentation
+              <div className="relative z-10 p-6 sm:p-10 lg:p-12 max-w-xl space-y-6 text-white">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-wide">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" /> 72-Hour Sourdough Fermentation
                 </div>
 
-                <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.15]">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
                   Authentic Italian <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-[#FF6B35]">
                     Wood-Fired Pizzas
@@ -59,7 +59,7 @@ export default function LandingPage() {
                 </p>
 
                 {/* Integrated Search bar inside Banner */}
-                <div className="p-1.5 rounded-xl bg-white/95 backdrop-blur-md shadow-lg flex items-center gap-2 max-w-md">
+                <div className="p-1.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl flex items-center gap-2 max-w-md border border-white/40">
                   <div className="flex items-center gap-2.5 px-3 py-2 w-full">
                     <Search className="w-4 h-4 text-stone-400 shrink-0" />
                     <input
@@ -72,53 +72,60 @@ export default function LandingPage() {
                   </div>
                   <Link
                     href="/menu"
-                    className="px-5 py-2.5 rounded-lg bg-[#FF6B35] text-white text-xs font-bold hover:bg-[#E85A24] transition-all whitespace-nowrap flex items-center gap-1 shrink-0"
+                    className="px-6 py-3 rounded-xl bg-[#FF6B35] text-white text-xs font-bold hover:bg-[#E85A24] shadow-md shadow-orange-500/20 transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0"
                   >
-                    Order <ArrowRight className="w-3.5 h-3.5" />
+                    Order Now <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
+                </div>
+
+                {/* Slide indicator dots like CameraBazar */}
+                <div className="pt-2 flex items-center gap-2">
+                  <span className="w-7 h-1.5 rounded-full bg-[#FF6B35]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
                 </div>
               </div>
             </div>
 
             {/* Right Side Promo Cards (4 cols) */}
-            <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+            <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 lg:gap-6">
               
               {/* Promo Card 1: Custom Builder */}
-              <Link href="/builder" className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-md h-[185px] sm:h-[210px] block">
+              <Link href="/builder" className="group relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-lg h-[195px] sm:h-[220px] block">
                 <img
                   src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
                   alt="Custom Pizza Builder"
-                  className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white flex items-end justify-between">
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/50 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between">
                   <div>
-                    <span className="px-2 py-0.5 rounded bg-amber-500 text-[10px] font-extrabold uppercase tracking-wider">Create Your Own</span>
-                    <h3 className="text-base font-black mt-1 group-hover:text-amber-300 transition-colors">Custom Pizza Builder</h3>
-                    <p className="text-[11px] text-stone-300">Choose crust, sauce & toppings</p>
+                    <span className="px-2.5 py-0.5 rounded-md bg-amber-500 text-[10px] font-extrabold uppercase tracking-wider text-stone-950">Interactive</span>
+                    <h3 className="text-lg font-black mt-1 group-hover:text-amber-300 transition-colors">Custom Pizza Builder</h3>
+                    <p className="text-xs text-stone-300">Choose crust, sauce & toppings</p>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all">
-                    <ChevronRight className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all shadow-md">
+                    <ChevronRight className="w-5 h-5" />
                   </div>
                 </div>
               </Link>
 
               {/* Promo Card 2: 15-Min Express Delivery */}
-              <Link href="/menu" className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-md h-[185px] sm:h-[210px] block">
+              <Link href="/menu" className="group relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-200/80 shadow-lg h-[195px] sm:h-[220px] block">
                 <img
                   src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=800&q=80"
                   alt="Express Delivery"
-                  className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white flex items-end justify-between">
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/50 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between">
                   <div>
-                    <span className="px-2 py-0.5 rounded bg-[#FF6B35] text-[10px] font-extrabold uppercase tracking-wider">Fast Delivery</span>
-                    <h3 className="text-base font-black mt-1 group-hover:text-amber-300 transition-colors">15-20 Min Express Guarantee</h3>
-                    <p className="text-[11px] text-stone-300">Delivered piping hot</p>
+                    <span className="px-2.5 py-0.5 rounded-md bg-[#FF6B35] text-[10px] font-extrabold uppercase tracking-wider">Fast Delivery</span>
+                    <h3 className="text-lg font-black mt-1 group-hover:text-amber-300 transition-colors">15-20 Min Guarantee</h3>
+                    <p className="text-xs text-stone-300">Delivered piping hot</p>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all">
-                    <ChevronRight className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#FF6B35] transition-all shadow-md">
+                    <ChevronRight className="w-5 h-5" />
                   </div>
                 </div>
               </Link>
