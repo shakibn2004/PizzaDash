@@ -410,32 +410,75 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 8. Interactive Custom Pizza Builder Banner (Vibrant Light Warm Container) */}
+      {/* 8. Ultra-Premium Polish: Interactive Custom Pizza Builder Banner */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-[#FF6B35] via-[#E85A24] to-amber-500 text-white p-8 sm:p-12 overflow-hidden shadow-2xl">
-          <img
-            src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=80"
-            alt="Chef Crafting Pizza"
-            className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-overlay"
-          />
-          <div className="relative z-10 max-w-xl space-y-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-extrabold">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Interactive Custom Builder
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-              Create Your Own Gourmet Masterpiece.
-            </h2>
-            <p className="text-sm text-orange-50 font-medium leading-relaxed">
-              Mix and match artisan sourdough crusts, signature sauces, gourmet cheeses, and premium toppings with real-time price estimation.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/builder"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-[#FF6B35] text-xs font-black shadow-lg hover:bg-stone-50 transition-all hover:scale-102 active:scale-95"
-              >
-                Launch Builder <ArrowRight className="w-4 h-4" />
-              </Link>
+        <div className="relative rounded-3xl bg-gradient-to-br from-white via-[#FFFDF9] to-orange-50/60 border border-orange-200/90 p-8 sm:p-14 overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+          
+          {/* Decorative Warm Ambient Glows */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-orange-200/30 via-amber-100/20 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            {/* Left Content Side */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 border border-orange-200/80 text-[#FF6B35] text-xs font-black tracking-wide shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#FF6B35]" /> Interactive Custom Builder
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-stone-900 leading-[1.15]">
+                Create Your Own <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] via-[#E85A24] to-amber-600">
+                  Gourmet Masterpiece.
+                </span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-stone-600 font-medium leading-relaxed max-w-lg">
+                Mix and match 72-hour artisan sourdough crusts, signature San Marzano tomato sauces, imported cheeses, and 20+ gourmet toppings with real-time price estimation.
+              </p>
+
+              {/* Feature Highlights Grid */}
+              <div className="grid grid-cols-2 gap-3 pt-1 max-w-md">
+                <div className="flex items-center gap-2 text-xs font-bold text-stone-700 bg-white/80 p-2.5 rounded-xl border border-orange-100">
+                  <CheckCircle2 className="w-4 h-4 text-[#FF6B35]" /> Real-time Price Calculator
+                </div>
+                <div className="flex items-center gap-2 text-xs font-bold text-stone-700 bg-white/80 p-2.5 rounded-xl border border-orange-100">
+                  <CheckCircle2 className="w-4 h-4 text-[#FF6B35]" /> 20+ Artisanal Toppings
+                </div>
+              </div>
+
+              <div className="pt-3">
+                <Link
+                  href="/builder"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#FF6B35] text-white text-xs font-black shadow-lg shadow-orange-500/25 hover:bg-[#E85A24] transition-all hover:scale-102 active:scale-95"
+                >
+                  Launch Interactive Builder <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
+
+            {/* Right Side Framed Visual Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-orange-200/80 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+                <img
+                  src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=85"
+                  alt="Chef Crafting Pizza"
+                  className="w-full h-80 lg:h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
+                
+                {/* Floating Chef Badge */}
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/90 backdrop-blur-md border border-white/40 text-stone-900 flex items-center gap-3 shadow-lg">
+                  <div className="w-10 h-10 rounded-xl bg-[#FF6B35] text-white font-black flex items-center justify-center text-lg shrink-0">
+                    👨‍🍳
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black text-stone-900">Crafted by Master Pizzaiolo</h4>
+                    <p className="text-[11px] text-stone-500 font-medium">Handcrafted with precision & passion</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
