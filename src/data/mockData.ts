@@ -138,6 +138,36 @@ export const MOCK_PIZZAS: Pizza[] = [
     isBestseller: true,
     ingredients: ['San Marzano Tomatoes', 'Thick Bacon', 'Pepperoni', 'Whipped Ricotta', 'Hot Honey Drizzle'],
     dietary: []
+  },
+  {
+    id: 'pizza-7',
+    name: 'Prosciutto e Funghi Gourmet',
+    description: 'Aged Parma prosciutto di San Daniele, wild porcini mushrooms, fresh fior di latte, and micro thyme.',
+    price: 26.50,
+    rating: 4.92,
+    reviewsCount: 167,
+    category: 'Chef\'s Special',
+    image: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=1200&q=85',
+    calories: 1080,
+    prepTime: '15-20 min',
+    isNew: true,
+    ingredients: ['San Daniele Prosciutto', 'Porcini Mushrooms', 'Fior di Latte', 'Micro Thyme'],
+    dietary: []
+  },
+  {
+    id: 'pizza-8',
+    name: 'Pesto Genovese & Sundried Tomato',
+    description: 'Housemade pine nut pesto, sundried Roma tomatoes, roasted pine nuts, whipped goat cheese, balsamic drizzle.',
+    price: 22.00,
+    rating: 4.86,
+    reviewsCount: 134,
+    category: 'Veggie',
+    image: 'https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=1200&q=85',
+    calories: 950,
+    prepTime: '12-16 min',
+    isBestseller: false,
+    ingredients: ['Pine Nut Pesto', 'Sundried Tomatoes', 'Goat Cheese', 'Balsamic Glaze'],
+    dietary: ['Vegetarian']
   }
 ];
 

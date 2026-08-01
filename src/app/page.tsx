@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Flame, Clock, ArrowRight, ShieldCheck, Star, Truck, Award, Zap, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Search, Sparkles, Flame, Clock, ArrowRight, ShieldCheck, Star, Truck, Award, Zap, ChevronRight, CheckCircle2, Heart, ShoppingBag } from 'lucide-react';
 import { MOCK_PIZZAS } from '@/data/mockData';
 import { PizzaCard } from '@/components/PizzaCard';
 
@@ -25,8 +26,11 @@ export default function LandingPage() {
     ? MOCK_PIZZAS
     : MOCK_PIZZAS.filter(p => p.category === selectedCategory);
 
+  // Double the list to ensure seamless infinite loop
+  const marqueePizzas = [...MOCK_PIZZAS, ...MOCK_PIZZAS];
+
   return (
-    <div className="min-h-screen bg-subtle-pattern">
+    <div className="min-h-screen bg-subtle-pattern overflow-x-hidden">
       
       {/* 1. CameraBazar-Style Split Grid Hero Section */}
       <section className="pt-6 pb-8 sm:pt-8 sm:pb-10">
@@ -136,8 +140,58 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 2. CameraBazar-Style Value Proposition Bar */}
-      <section className="py-4 bg-white/80 border-y border-stone-200/60">
+      {/* 2. Framer Motion Infinite Horizontal Scrolling Showcase (CameraBazar Feature) */}
+      <section className="py-6 bg-stone-900 text-white overflow-hidden border-y border-stone-800 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B35] animate-ping" />
+            <h3 className="text-xs font-bold uppercase tracking-widest text-amber-400">Live Trending Oven Showcase</h3>
+          </div>
+          <span className="text-[11px] font-semibold text-stone-400">Continuous 360° Rotational Bake</span>
+        </div>
+
+        {/* Infinite Marquee Track */}
+        <div className="relative flex overflow-hidden select-none">
+          {/* Subtle Side Fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-stone-900 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-stone-900 to-transparent z-10 pointer-events-none" />
+
+          <motion.div
+            className="flex items-center gap-6 whitespace-nowrap"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{
+              ease: 'linear',
+              duration: 25,
+              repeat: Infinity,
+            }}
+          >
+            {marqueePizzas.map((pizza, index) => (
+              <Link
+                key={`${pizza.id}-${index}`}
+                href={`/pizza/${pizza.id}`}
+                className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-stone-800/80 border border-stone-700/70 hover:border-[#FF6B35] hover:bg-stone-800 transition-all shrink-0 group"
+              >
+                <img
+                  src={pizza.image}
+                  alt={pizza.name}
+                  className="w-12 h-12 rounded-xl object-cover border border-stone-600 group-hover:scale-105 transition-transform"
+                />
+                <div>
+                  <h4 className="text-xs font-bold text-white group-hover:text-[#FF6B35] transition-colors">{pizza.name}</h4>
+                  <div className="flex items-center gap-2 text-[11px] text-stone-400 mt-0.5">
+                    <span className="font-extrabold text-amber-400">${pizza.price}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-0.5 text-amber-300 font-bold">★ {pizza.rating}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. CameraBazar-Style Value Proposition Bar */}
+      <section className="py-4 bg-white/80 border-b border-stone-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-2">
             <div className="flex items-center gap-3.5 p-2">
@@ -183,7 +237,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 3. CameraBazar-Style Grid Category Showcase */}
+      {/* 4. CameraBazar-Style Grid Category Showcase */}
       <section className="py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
@@ -218,7 +272,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 4. Featured Pizzas Product Grid */}
+      {/* 5. Featured Pizzas Product Grid */}
       <section className="pb-16 pt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8 border-b border-stone-200/80 pb-4">
@@ -233,7 +287,7 @@ export default function LandingPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredPizzas.map((pizza) => (
               <PizzaCard key={pizza.id} pizza={pizza} />
             ))}
@@ -241,9 +295,124 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 5. Custom Pizza Builder Banner */}
-      <section className="pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-stone-900 text-white p-8 sm:p-12 overflow-hidden shadow-xl border border-stone-800">
+      {/* 6. CameraBazar Lengthy Section: Artisan Ingredients Showcase */}
+      <section className="py-16 bg-white border-y border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
+            <span className="text-xs font-black text-[#FF6B35] uppercase tracking-widest">Quality Ingredients</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
+              Why Our Pizza Taste Exceptional
+            </h2>
+            <p className="text-sm text-stone-500 font-normal">
+              We never compromise on authentic Italian sourdough baking traditions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-3xl bg-stone-50 border border-stone-200/80 text-center space-y-4 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-orange-100 text-[#FF6B35] flex items-center justify-center mx-auto text-2xl font-black">
+                🌾
+              </div>
+              <h3 className="text-lg font-black text-stone-900">72-Hour Fermented Dough</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Made using organic Type 00 Italian flour, slow-fermented for 3 days for maximum flavor digestability and air pockets.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-stone-50 border border-stone-200/80 text-center space-y-4 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-2xl font-black">
+                🍅
+              </div>
+              <h3 className="text-lg font-black text-stone-900">San Marzano DOP Tomatoes</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Imported directly from the volcanic soil of Mount Vesuvius in Naples, providing a naturally sweet acidity.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-stone-50 border border-stone-200/80 text-center space-y-4 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl font-black">
+                🔥
+              </div>
+              <h3 className="text-lg font-black text-stone-900">900°F Oak Wood Oven</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Flash baked in under 90 seconds in authentic Valoriani brick ovens for perfect leoparding and crispy crust.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CameraBazar Lengthy Section: Customer Testimonial Slider */}
+      <section className="py-16 bg-stone-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
+            <span className="text-xs font-black text-amber-400 uppercase tracking-widest">Verified Customer Reviews</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Loved by 15,000+ Pizza Lovers
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700 space-y-4">
+              <div className="flex items-center gap-1 text-amber-400 text-sm">
+                ★★★★★
+              </div>
+              <p className="text-xs text-stone-300 leading-relaxed italic">
+                "The Truffle Pepperoni is hands down the best wood-fired pizza in Seattle! The sourdough crust is crisp and airy."
+              </p>
+              <div className="flex items-center gap-3 pt-2 border-t border-stone-700/60">
+                <div className="w-9 h-9 rounded-full bg-[#FF6B35] font-bold text-xs flex items-center justify-center">
+                  MS
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-white">Marcus Sterling</h4>
+                  <p className="text-[10px] text-stone-400">Verified Buyer • 2 days ago</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700 space-y-4">
+              <div className="flex items-center gap-1 text-amber-400 text-sm">
+                ★★★★★
+              </div>
+              <p className="text-xs text-stone-300 leading-relaxed italic">
+                "15 minute delivery guarantee was actually real! Arrived piping hot with melted burrata right at my doorstep."
+              </p>
+              <div className="flex items-center gap-3 pt-2 border-t border-stone-700/60">
+                <div className="w-9 h-9 rounded-full bg-amber-500 font-bold text-xs flex items-center justify-center">
+                  EK
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-white">Elena Rostova</h4>
+                  <p className="text-[10px] text-stone-400">Verified Buyer • Yesterday</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-stone-800/80 border border-stone-700 space-y-4">
+              <div className="flex items-center gap-1 text-amber-400 text-sm">
+                ★★★★★
+              </div>
+              <p className="text-xs text-stone-300 leading-relaxed italic">
+                "The custom pizza builder is so smooth to use. You can literally select dough, sauces and watch your price dynamically calculate."
+              </p>
+              <div className="flex items-center gap-3 pt-2 border-t border-stone-700/60">
+                <div className="w-9 h-9 rounded-full bg-emerald-600 font-bold text-xs flex items-center justify-center">
+                  DR
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-white">David Reed</h4>
+                  <p className="text-[10px] text-stone-400">Verified Buyer • 4 hours ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Custom Pizza Builder Banner */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-3xl bg-stone-900 text-white p-8 sm:p-12 overflow-hidden shadow-2xl border border-stone-800">
           <img
             src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=80"
             alt="Chef Crafting Pizza"
