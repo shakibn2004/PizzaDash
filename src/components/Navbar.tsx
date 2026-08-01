@@ -114,7 +114,7 @@ export const Navbar = () => {
 
           <Link
             href="/admin"
-            className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-stone-900 text-white text-[11px] font-bold hover:bg-stone-800 transition-all whitespace-nowrap shadow-xs"
+            className="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-orange-100/80 border border-orange-200/80 text-[#FF6B35] text-[11px] font-bold hover:bg-[#FF6B35] hover:text-white transition-all whitespace-nowrap shadow-2xs"
           >
             Admin UI
           </Link>
