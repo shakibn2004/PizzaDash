@@ -1,22 +1,51 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { CheckCircle2, Clock, ChefHat, Bike, Home, PhoneCall, MapPin } from 'lucide-react';
-import { MOCK_ORDERS } from '@/data/mockData';
+import { CheckCircle2, Clock, ChefHat, Bike, Home, PhoneCall, MapPin, Loader2 } from 'lucide-react';
 
 export default function OrderTrackingPage() {
   const params = useParams();
-  const orderId = (params?.id as string) || 'ORD-94821';
-  const order = MOCK_ORDERS.find(o => o.id === orderId) || MOCK_ORDERS[0];
+  const orderId = params?.id as string;
+  const [order, setOrder] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchOrder() {
+      try {
+        setLoading(true);
+        const res = await fetch('/api/orders');
+        const data = await res.json();
+        if (data.success && data.orders) {
+          const found = data.orders.find((o: any) => o._id === orderId);
+          setOrder(found || data.orders[0]);
+        }
+      } catch (err) {
+        console.error('Error fetching order tracking info:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchOrder();
+  }, [orderId]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen py-20 flex flex-col items-center justify-center">
+        <Loader2 className="w-10 h-10 text-[#FF6B35] animate-spin mb-3" />
+        <p className="text-xs font-bold text-gray-500">Retrieving live tracking details from MongoDB...</p>
+      </div>
+    );
+  }
+
+  const currentStatus = order?.status || 'Preparing';
 
   const timelineSteps = [
-    { label: 'Order Received', desc: '11:30 AM', completed: true, icon: CheckCircle2 },
-    { label: 'Preparing', desc: '11:32 AM', completed: true, icon: ChefHat },
-    { label: 'In Kitchen', desc: 'Baking at 500°F', completed: true, active: true, icon: Clock },
-    { label: 'Out for Delivery', desc: 'Estimated 11:45 AM', completed: false, icon: Bike },
-    { label: 'Delivered', desc: 'Estimated 11:52 AM', completed: false, icon: Home }
+    { label: 'Order Received', desc: 'Confirmed', completed: true, icon: CheckCircle2 },
+    { label: 'Preparing', desc: 'Crafting Dough', completed: ['Preparing', 'Baking', 'Out for Delivery', 'Delivered'].includes(currentStatus), icon: ChefHat },
+    { label: 'Baking', desc: '500°F Wood Oven', completed: ['Baking', 'Out for Delivery', 'Delivered'].includes(currentStatus), active: currentStatus === 'Baking', icon: Clock },
+    { label: 'Out for Delivery', desc: 'On the way', completed: ['Out for Delivery', 'Delivered'].includes(currentStatus), active: currentStatus === 'Out for Delivery', icon: Bike },
+    { label: 'Delivered', desc: 'Enjoy your meal!', completed: currentStatus === 'Delivered', icon: Home }
   ];
 
   return (
@@ -25,17 +54,17 @@ export default function OrderTrackingPage() {
       <div className="bg-white p-6 sm:p-8 rounded-3xl soft-shadow border border-gray-100 mb-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-100">
           <div>
-            <span className="text-xs font-black text-[#FF6B35] uppercase tracking-wider">Live Tracker • {order.id}</span>
-            <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mt-0.5">Order Status: {order.status}</h1>
+            <span className="text-xs font-black text-[#FF6B35] uppercase tracking-wider">Live MongoDB Tracker • #{order?._id?.slice(-8) || orderId}</span>
+            <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mt-0.5">Status: {order?.status || 'Preparing'}</h1>
           </div>
           <div className="px-4 py-2 rounded-2xl bg-orange-50 text-[#FF6B35] border border-orange-200 text-xs font-extrabold flex items-center gap-2">
-            <Clock className="w-4 h-4 animate-spin" /> ETA: {order.estimatedDelivery}
+            <Clock className="w-4 h-4 animate-spin" /> ETA: {order?.estimatedDeliveryTime || '25-30 mins'}
           </div>
         </div>
 
         {/* 5-Step Timeline Component */}
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 py-4">
-          {timelineSteps.map((step, index) => {
+          {timelineSteps.map((step) => {
             const Icon = step.icon;
             return (
               <div key={step.label} className="flex flex-col items-center text-center space-y-2 relative">
@@ -58,25 +87,15 @@ export default function OrderTrackingPage() {
 
       {/* Driver & Details Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Driver Info Card */}
-        <div className="bg-white p-6 rounded-3xl soft-shadow border border-gray-100 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gray-100 overflow-hidden border border-gray-200">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Driver" className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <span className="text-[10px] font-bold text-gray-400 uppercase">Assigned Courier</span>
-              <h3 className="text-base font-extrabold text-gray-900">{order.driverName}</h3>
-              <p className="text-xs text-gray-500">Honda Scooter • 4.9 ★ Rating</p>
-            </div>
+        {/* Order Info Card */}
+        <div className="bg-white p-6 rounded-3xl soft-shadow border border-gray-100 space-y-3">
+          <span className="text-[10px] font-bold text-gray-400 uppercase">Customer Details</span>
+          <h3 className="text-base font-extrabold text-gray-900">{order?.customerName}</h3>
+          <p className="text-xs text-gray-500">{order?.email} • {order?.phone}</p>
+          <div className="pt-2 border-t border-gray-100 flex justify-between text-xs font-bold text-gray-900">
+            <span>Payment Method:</span>
+            <span className="text-[#FF6B35]">{order?.paymentMethod} ({order?.paymentStatus})</span>
           </div>
-
-          <a
-            href={`tel:${order.driverPhone}`}
-            className="p-3 rounded-2xl bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors"
-          >
-            <PhoneCall className="w-5 h-5" />
-          </a>
         </div>
 
         {/* Delivery Address Card */}
@@ -85,9 +104,9 @@ export default function OrderTrackingPage() {
             <MapPin className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase">Destination</span>
-            <h3 className="text-xs font-extrabold text-gray-900 line-clamp-1">{order.deliveryAddress}</h3>
-            <p className="text-[11px] text-gray-500">Left at front door instruction</p>
+            <span className="text-[10px] font-bold text-gray-400 uppercase">Destination Address</span>
+            <h3 className="text-xs font-extrabold text-gray-900 line-clamp-2">{order?.address}</h3>
+            <p className="text-[11px] text-gray-500 mt-1">Total Paid: ${order?.totalAmount?.toFixed(2)}</p>
           </div>
         </div>
       </div>
