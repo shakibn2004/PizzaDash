@@ -5,6 +5,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PremiumSpinner } from "@/components/PremiumSpinner";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 
 export const metadata: Metadata = {
   title: "PizzaDash — Gourmet Wood-Fired Pizza Delivery",
@@ -25,13 +26,15 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased bg-[#FDFBF7] text-[#1C1917]">
         <PremiumSpinner durationMs={3500} />
-        <AuthProvider>
-          <CartProvider>
-            <Navbar />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </CartProvider>
-        </AuthProvider>
+        <MotionProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Navbar />
+              <main className="min-h-screen">{children}</main>
+              <Footer />
+            </CartProvider>
+          </AuthProvider>
+        </MotionProvider>
       </body>
     </html>
   );
