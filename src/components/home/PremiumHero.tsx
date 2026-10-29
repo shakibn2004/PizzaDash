@@ -315,7 +315,7 @@ export function PremiumHero() {
         rawX.set(0);
         rawY.set(0);
       }}
-      className="relative overflow-hidden bg-[radial-gradient(120%_90%_at_70%_30%,#FBF8F5_0%,#F2EDE8_55%,#E9E3DD_100%)]"
+      className="relative -mt-20 pt-20 overflow-hidden bg-[radial-gradient(120%_90%_at_70%_30%,#FBF8F5_0%,#F2EDE8_55%,#E9E3DD_100%)]"
     >
       {/* edge garnish that sits partly off-canvas, like the reference */}
       <Parallax mx={mx} my={my} depth={-50} className="absolute -left-10 top-[58%] w-28 sm:w-36 blur-[2px] opacity-90 pointer-events-none">

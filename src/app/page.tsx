@@ -31,7 +31,7 @@ export default function LandingPage() {
     : MOCK_PIZZAS.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#FFFDF9] text-stone-800 bg-subtle-pattern overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFDF9] text-stone-800 bg-subtle-pattern overflow-x-clip">
 
       {/* 1. Premium hero + 2. Signature carousel */}
       <PremiumHero />
