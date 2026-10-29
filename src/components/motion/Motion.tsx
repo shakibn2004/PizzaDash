@@ -108,7 +108,7 @@ export function WordReveal({
             transition={{ duration: 0.8, delay: delay + i * 0.08, ease: EASE_OUT }}
           >
             {word}
-            {i < words.length - 1 ? ' ' : ''}
+            {i < words.length - 1 ? '\u00A0' : ''}
           </motion.span>
         </span>
       ))}
