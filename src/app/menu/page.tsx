@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Search, SlidersHorizontal, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { EASE_OUT } from '@/components/motion/Motion';
 import { PizzaCard } from '@/components/PizzaCard';
 
 export default function MenuPage() {
@@ -62,7 +64,14 @@ export default function MenuPage() {
       {/* Header & Search */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Our Gourmet Menu</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT }}
+            className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight"
+          >
+            Our Gourmet Menu
+          </motion.h1>
           <p className="text-sm text-gray-500 mt-1">Live fresh wood-fired pizzas served directly from MongoDB database.</p>
         </div>
 
@@ -87,13 +96,20 @@ export default function MenuPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-2xl text-xs font-bold capitalize whitespace-nowrap transition-all cursor-pointer ${
+              className={`relative px-5 py-2.5 rounded-2xl text-xs font-bold capitalize whitespace-nowrap transition-colors cursor-pointer ${
                 activeCategory === cat
-                  ? 'bg-[#FF6B35] text-white shadow-md'
+                  ? 'text-white'
                   : 'bg-gray-100/80 text-gray-600 hover:bg-gray-200/70'
               }`}
             >
-              {cat}
+              {activeCategory === cat && (
+                <motion.span
+                  layoutId="menu-pill"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  className="absolute inset-0 rounded-2xl bg-[#FF6B35] shadow-md"
+                />
+              )}
+              <span className="relative">{cat}</span>
             </button>
           ))}
         </div>
@@ -106,11 +122,22 @@ export default function MenuPage() {
           <p className="text-xs font-bold text-gray-500">Connecting to MongoDB & fetching live menu...</p>
         </div>
       ) : filteredPizzas.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPizzas.map((pizza) => (
-            <PizzaCard key={pizza.id} pizza={pizza} />
-          ))}
-        </div>
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredPizzas.map((pizza, i) => (
+              <motion.div
+                key={pizza.id}
+                layout
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.5, delay: Math.min(i, 8) * 0.06, ease: EASE_OUT }}
+              >
+                <PizzaCard pizza={pizza} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       ) : (
         <div className="py-20 text-center glass-panel rounded-3xl p-8 max-w-md mx-auto my-12">
           <div className="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B35] mx-auto mb-4">

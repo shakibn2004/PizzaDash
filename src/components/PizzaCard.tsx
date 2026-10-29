@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ShoppingBag, Star, Eye } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ShoppingBag, Star, Eye, Check } from 'lucide-react';
 import { Pizza } from '@/data/mockData';
 import { useCart } from '@/context/CartContext';
 
@@ -34,7 +34,7 @@ export const PizzaCard: React.FC<PizzaCardProps> = ({ pizza }) => {
           <img
             src={pizza.image}
             alt={pizza.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent opacity-60" />
 
@@ -55,7 +55,7 @@ export const PizzaCard: React.FC<PizzaCardProps> = ({ pizza }) => {
           {/* Quick View Floating Button */}
           <Link
             href={`/pizza/${pizza.id}`}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md border border-stone-200 flex items-center justify-center text-stone-700 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#FF6B35] hover:text-white shadow-md"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md border border-stone-200 flex items-center justify-center text-stone-700 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 hover:bg-[#FF6B35] hover:text-white shadow-md"
           >
             <Eye className="w-4 h-4" />
           </Link>
@@ -105,17 +105,42 @@ export const PizzaCard: React.FC<PizzaCardProps> = ({ pizza }) => {
           <span className="text-2xl font-black text-stone-900">${pizza.price.toFixed(2)}</span>
         </div>
 
-        <button
+        <motion.button
           onClick={handleAddToCart}
-          className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs font-black shadow-md transition-all active:scale-95 ${
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.92 }}
+          animate={added ? { scale: [1, 1.12, 1] } : { scale: 1 }}
+          transition={{ duration: 0.35 }}
+          className={`relative overflow-hidden flex items-center gap-2 px-5 py-3 rounded-2xl text-xs font-black shadow-md transition-colors cursor-pointer ${
             added
               ? 'bg-emerald-600 text-white shadow-emerald-600/30'
               : 'bg-[#FF6B35] text-white hover:bg-[#E85A24] shadow-orange-500/20'
           }`}
         >
-          <ShoppingBag className="w-4 h-4" />
-          {added ? 'Added!' : 'Add to Order'}
-        </button>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={added ? 'added' : 'add'}
+              initial={{ y: 14, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -14, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center gap-2"
+            >
+              {added ? (
+                <motion.span
+                  initial={{ scale: 0, rotate: -45 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                >
+                  <Check className="w-4 h-4" />
+                </motion.span>
+              ) : (
+                <ShoppingBag className="w-4 h-4" />
+              )}
+              {added ? 'Added!' : 'Add to Order'}
+            </motion.span>
+          </AnimatePresence>
+        </motion.button>
       </div>
     </motion.div>
   );
